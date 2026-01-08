@@ -12,6 +12,9 @@ public class Kid implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /*
+    ---------Columnas---------
+     */
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +32,9 @@ public class Kid implements Serializable {
     @JoinColumn(name = "id_letter")
     private Letter letter;
 
+    /*
+----------Constructores--------------
+    */
     public Kid() {
     }
 
@@ -37,6 +43,11 @@ public class Kid implements Serializable {
         this.surname = surname;
         this.letter = letter;
     }
+
+
+    /*
+----------- Getters y setters-------------
+    */
 
     public Integer getIdKid() {
         return idKid;

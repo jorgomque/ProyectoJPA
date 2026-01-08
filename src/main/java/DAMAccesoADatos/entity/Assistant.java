@@ -12,6 +12,10 @@ public class Assistant implements  Serializable{
 
     private static final long serialVersionUID = 1L;
 
+
+    /*
+    ---------Columnas---------
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_assistant")
@@ -23,6 +27,10 @@ public class Assistant implements  Serializable{
     @OneToMany(mappedBy = "assistant")
     private Set<Letter> letters;
 
+    /*
+    ----------Constructores--------------
+     */
+
     public Assistant() {
     }
 
@@ -31,6 +39,10 @@ public class Assistant implements  Serializable{
         this.letters = letters;
     }
 
+
+    /*
+    ----------- Getters y setters-------------
+     */
     public Integer getIdAssistant() {
         return idAssistant;
     }

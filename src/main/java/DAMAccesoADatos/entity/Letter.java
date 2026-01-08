@@ -6,7 +6,9 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Letter")
 public class Letter implements Serializable {
-
+    /*
+    ---------Columnas---------
+     */
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,6 +37,11 @@ public class Letter implements Serializable {
     @OneToOne (mappedBy = "letter")
     private Kid kid;
 
+    //@ManyToMany
+
+    /*
+----------Constructores--------------
+    */
     public Letter() {
     }
 
@@ -46,6 +53,9 @@ public class Letter implements Serializable {
         this.assistant = assistant;
         this.kid = kid;
     }
+        /*
+    ----------- Getters y setters-------------
+     */
 
     public Integer getIdLetter() {
         return idLetter;
