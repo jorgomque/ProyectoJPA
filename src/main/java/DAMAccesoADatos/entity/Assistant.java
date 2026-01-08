@@ -23,4 +23,32 @@ public class Assistant implements  Serializable{
     @OneToMany(mappedBy = "assistant")
     private Set<Letter> letters;
 
+    public Assistant() {
+    }
+
+    public Assistant(String name, Set<Letter> letters) {
+        this.name = name;
+        this.letters = letters;
+    }
+
+    public Integer getIdAssistant() {
+        return idAssistant;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Set<Letter> getLetters() {
+        return letters;
+    }
+
+    @Override
+    public String toString() {
+        return "Assistant{" +
+                "idAssistant=" + idAssistant +
+                ", name='" + name + '\'' +
+                ", letters=" + letters +
+                '}';
+    }
 }
