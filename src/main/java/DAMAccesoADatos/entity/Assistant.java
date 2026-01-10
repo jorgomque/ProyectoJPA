@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -34,10 +35,11 @@ public class Assistant implements  Serializable{
     public Assistant() {
     }
 
-    public Assistant(String name, Set<Letter> letters) {
+    public Assistant(String name) {
         this.name = name;
-        this.letters = letters;
-    }
+        this.letters = new HashSet<>();
+        }
+
 
 
     /*

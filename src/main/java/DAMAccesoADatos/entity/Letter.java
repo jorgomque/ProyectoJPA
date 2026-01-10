@@ -2,6 +2,7 @@ package DAMAccesoADatos.entity;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "Letter")
@@ -37,7 +38,8 @@ public class Letter implements Serializable {
     @OneToOne (mappedBy = "letter")
     private Kid kid;
 
-    //@ManyToMany
+    @OneToMany(mappedBy = "letter")
+    private Set<LetterGift> letterGiftSet;
 
     /*
 ----------Constructores--------------
