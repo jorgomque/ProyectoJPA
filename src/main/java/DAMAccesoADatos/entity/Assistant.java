@@ -62,7 +62,6 @@ public class Assistant implements  Serializable{
         return "Assistant{" +
                 "idAssistant=" + idAssistant +
                 ", name='" + name + '\'' +
-                ", letters=" + letters +
                 '}';
     }
 }

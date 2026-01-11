@@ -60,7 +60,7 @@ public class GiftService {
 
     }
 
-    public void updateGiftAge(Integer id, String description){
+    public void updateGiftDescription(Integer id, String description){
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         try{

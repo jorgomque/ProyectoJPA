@@ -1,8 +1,10 @@
 package DAMAccesoADatos.service;
 
 import DAMAccesoADatos.entity.Assistant;
+import DAMAccesoADatos.entity.Letter;
 import DAMAccesoADatos.repository.AssistantRepository;
 import DAMAccesoADatos.repository.GiftRepository;
+import DAMAccesoADatos.repository.LetterRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -36,6 +38,30 @@ public class AssistantService {
             em.close();
         }
         return assistant;
+    }
+
+    public void deleteAssistant(Integer id){
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        Assistant assistant = em.find(Assistant.class, id);
+        try {
+            tx.begin();
+
+            LetterRepository letterRepo = new LetterRepository(em);
+            letterRepo.removeAssistantFromLetters(assistant);
+
+            AssistantRepository repo = new AssistantRepository(em);
+            repo.delete(assistant);
+            tx.commit();
+        }catch (Exception e) {
+            if (tx.isActive()) {
+                tx.rollback();
+            }
+            throw e;
+        }
+        finally {
+            em.close();
+        }
     }
 
 

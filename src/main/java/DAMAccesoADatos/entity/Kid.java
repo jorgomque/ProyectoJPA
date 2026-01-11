@@ -28,7 +28,7 @@ public class Kid implements Serializable {
     @Column(nullable = false, length = 50)
     private String surname;
 
-    @OneToOne
+    @OneToOne(cascade =  CascadeType.ALL)
     @JoinColumn(name = "id_letter")
     private Letter letter;
 
@@ -38,10 +38,10 @@ public class Kid implements Serializable {
     public Kid() {
     }
 
-    public Kid(String name, String surname, Letter letter) {
+    public Kid(String name, String surname) {
         this.name = name;
         this.surname = surname;
-        this.letter = letter;
+        // the letter is setted with the setter
     }
 
 
@@ -67,6 +67,14 @@ public class Kid implements Serializable {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public Letter getLetter() {
+        return letter;
+    }
+
+    public void setLetter(Letter letter) {
+        this.letter = letter;
     }
 
     @Override

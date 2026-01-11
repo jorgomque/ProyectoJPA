@@ -25,6 +25,12 @@ public class LetterGift implements  Serializable{
     @JoinColumn(name = "id_gift")
     private Gift gift;
 
+    public LetterGift() {
+    }
 
-
+    public LetterGift(Integer quantity, Letter letter, Gift gift) {
+        this.quantity = quantity;
+        this.letter = letter;
+        this.gift = gift;
+    }
 }

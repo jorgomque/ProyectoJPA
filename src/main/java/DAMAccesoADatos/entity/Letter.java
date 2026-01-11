@@ -2,6 +2,7 @@ package DAMAccesoADatos.entity;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -17,7 +18,7 @@ public class Letter implements Serializable {
     private Integer idLetter;
 
     @Column(nullable = false, length = 50)
-    private String adress;
+    private String address;
 
 
     @Column(nullable = false, length = 50)
@@ -35,11 +36,11 @@ public class Letter implements Serializable {
     private Assistant assistant;
 
 
-    @OneToOne (mappedBy = "letter")
+    @OneToOne (mappedBy = "letter" )
     private Kid kid;
 
-    @OneToMany(mappedBy = "letter")
-    private Set<LetterGift> letterGiftSet;
+    @OneToMany(mappedBy = "letter", cascade = CascadeType.ALL   )
+    private Set<LetterGift> letterGiftSet = new HashSet<>();
 
     /*
 ----------Constructores--------------
@@ -47,13 +48,13 @@ public class Letter implements Serializable {
     public Letter() {
     }
 
-    public Letter(String adress, String city, String hour, int day, Assistant assistant, Kid kid) {
-        this.adress = adress;
+    public Letter(String adress, String city, String hour, int day, Assistant assistant) {
+        this.address = adress;
         this.city = city;
         this.hour = hour;
         this.day = day;
         this.assistant = assistant;
-        this.kid = kid;
+        // the kid is setted with the setter
     }
         /*
     ----------- Getters y setters-------------
@@ -64,11 +65,11 @@ public class Letter implements Serializable {
     }
 
     public String getAdress() {
-        return adress;
+        return address;
     }
 
     public void setAdress(String adress) {
-        this.adress = adress;
+        this.address = adress;
     }
 
     public String getCity() {
@@ -111,15 +112,23 @@ public class Letter implements Serializable {
         this.kid = kid;
     }
 
+    public Set<LetterGift> getLetterGiftSet() {
+        return letterGiftSet;
+    }
+
+    public void setLetterGiftSet(Set<LetterGift> letterGiftSet) {
+        this.letterGiftSet = letterGiftSet;
+    }
+
     @Override
     public String toString() {
         return "Letter{" +
                 "idLetter=" + idLetter +
-                ", adress='" + adress + '\'' +
+                ", adress='" + address + '\'' +
                 ", city='" + city + '\'' +
                 ", hour='" + hour + '\'' +
                 ", day=" + day +
-                ", assistant=" + assistant +
+                ", assistant=" + assistant.getName() +
                 ", kid=" + kid.getName() +
                 '}';
     }
