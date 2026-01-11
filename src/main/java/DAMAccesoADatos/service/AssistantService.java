@@ -64,11 +64,6 @@ public class AssistantService {
         }
     }
 
-
-
-
-
-
     public List<Assistant> listAll(){
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();

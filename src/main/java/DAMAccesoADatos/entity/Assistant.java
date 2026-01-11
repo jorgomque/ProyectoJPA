@@ -59,9 +59,6 @@ public class Assistant implements  Serializable{
 
     @Override
     public String toString() {
-        return "Assistant{" +
-                "idAssistant=" + idAssistant +
-                ", name='" + name + '\'' +
-                '}';
+        return "Assistent: id: " + idAssistant + " nom: " + name;
     }
 }

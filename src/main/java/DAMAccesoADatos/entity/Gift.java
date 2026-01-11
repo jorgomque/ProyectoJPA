@@ -90,12 +90,7 @@ public class Gift implements  Serializable {
 
     @Override
     public String toString() {
-        return "Regal{" +
-                "id del regal=" + idGift +
-                ", nom='" + name + '\'' +
-                ", referencia='" + reference + '\'' +
-                "Edat minima: " + minimumAge +
-                "Descripció: " + description+
-                '}';
+        return "Regal: " + "id del regal: " + idGift + " nom: " + name
+                + " referencia='" + reference + " Edat minima: " + minimumAge + " Descripció: " + description;
     }
 }

@@ -79,11 +79,6 @@ public class Kid implements Serializable {
 
     @Override
     public String toString() {
-        return "Kid{" +
-                "idKid=" + idKid +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", letter=" + letter.getIdLetter() +
-                '}';
+        return "Xiquet: " + "id del xiquet: =" + idKid + " nom: " + name  + " cognom: " + surname + " carta: " + letter.getIdLetter();
     }
 }

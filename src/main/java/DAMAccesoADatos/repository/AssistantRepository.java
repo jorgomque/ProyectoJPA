@@ -22,17 +22,6 @@ public class AssistantRepository {
         return em.find(Assistant.class, id);
     }
 
-    public Assistant findByName(String name){
-        String jpql = "SELECT a FROM Assistant a WHERE a.name=:name";
-        Query qr = em.createQuery(jpql);
-        qr.setParameter("name",name);
-        List<Assistant>assistants = (List<Assistant>) qr.getResultList();
-        if (assistants.isEmpty()){
-            return null;
-        }
-        return assistants.get(0);
-    }
-
     public List<Assistant> findAll(){
         return em.createQuery("Select a from Assistant a", Assistant.class).getResultList();
     }

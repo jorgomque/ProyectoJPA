@@ -48,8 +48,8 @@ public class Letter implements Serializable {
     public Letter() {
     }
 
-    public Letter(String adress, String city, String hour, int day, Assistant assistant) {
-        this.address = adress;
+    public Letter(String address, String city, String hour, int day, Assistant assistant) {
+        this.address = address;
         this.city = city;
         this.hour = hour;
         this.day = day;
@@ -122,14 +122,8 @@ public class Letter implements Serializable {
 
     @Override
     public String toString() {
-        return "Letter{" +
-                "idLetter=" + idLetter +
-                ", adress='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", hour='" + hour + '\'' +
-                ", day=" + day +
-                ", assistant=" + assistant.getName() +
-                ", kid=" + kid.getName() +
-                '}';
+        return "Carta: " + " id de la carta: =" + idLetter + " Direcció=" + address + " ciutat: "
+                + city+" hora d'arrivada: " + hour +" dia: " + day +
+                " asistent asignat=" + assistant.getName() + " carta del xiquet: " + kid.getName();
     }
 }
